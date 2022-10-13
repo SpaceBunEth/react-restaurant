@@ -17,46 +17,20 @@ export default function App() {
   }, []);
 
 
-  if (!post) return null;
+  if (!post) 
+  return (
+    <>
+    <h1>Loading</h1>
+    </>
+  );
   console.log('AFTER: ',post)
   console.log(post[0])
   return (
     <>
-    <Info />
+    <h1>Loaded</h1>
     </>
-    
-    // <div>
-    //   <h1>Good Morning</h1>
-    //   <p>{post[0].title}</p>
-    //   <p>{post[0].price}</p>
-    //   {/* <p>{post[0].category.title}</p> */}
-    //   <p>{post[0].description}</p>
-    // </div>
   );
 }
 
-export function Info(){
-  const restaurantInfo = {
-    hours:[
-    'Monday 8:00am - 5:00pm',
-    'Tuesday 8:00am - 5:00pm',
-    'Wednesday 8:00am - 5:00pm',
-    'Thursday 8:00am - 5:00pm',
-    'Friday 8:00am - 9:00pm',
-    'Saturday 10:00am - 11:00pm',
-    'Sunday Closed'
-  ],
-    
-    phone: '(859)-555-5555',
 
-    address:{
-      street: '405 East Main Str',
-      city: 'Lexingtion',
-      state: 'KY',
-      zip: '40502'
-    }
 
-  }
-  const [info, setInfo] = React.useState(restaurantInfo);
-  console.log(info)
-}
