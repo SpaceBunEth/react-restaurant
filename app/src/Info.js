@@ -2,6 +2,7 @@ import React from "react";
 
 export default function Info(){
     const restaurantInfo = {
+      page: ['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast'],
       hours:[
       'Monday 8:00am - 5:00pm',
       'Tuesday 8:00am - 5:00pm',
