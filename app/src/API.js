@@ -1,13 +1,15 @@
-import React from 'react'
+import React from 'react';
 import axios from "axios";
-import Header from './Header'
-import Spinner from './Spinner';
-import Menu from './Menu'
+import Hero from './Hero';
+import Nav from './Nav';
+import Footer from './Footer';
+import Home from './Home';
 
     const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
 
     const objInfo = {
         page: ['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast'],
+        pageId: 'Home',
         hours:[
         'Monday 8:00am - 5:00pm',
         'Tuesday 8:00am - 5:00pm',
@@ -28,9 +30,13 @@ import Menu from './Menu'
         }
     }
 
+    const pageId = 'Home'
+
     export default function App() {
       const [post, setPost] = React.useState(null);
       const [info, setInfo] = React.useState(objInfo);
+      const [page, setpage] = React.useState(pageId)
+      console.log('page index in API.js',page)
 
       //console.log({post})
     
@@ -45,15 +51,21 @@ import Menu from './Menu'
       if (!post) 
       return (
         <>
-        <Spinner />
+        <Hero />
+        <Nav infoState={info} page={pageId} setPage={setpage}/>
+        <Home />
+        <Footer />
         </>
       );
       console.log('AFTER: ',post)
       //console.log(post[0])
       return (
         <>
-        <Header/>
-        <Menu menuItem={post}/>
+        <Hero />
+        <Nav infoState={info} page={pageId} setPage={setpage}/>
+        <Home />
+        {/* <Data /> */}
+        <Footer />
         </>
       );
     }

@@ -9,20 +9,8 @@ export default function(props){
         })
 
 
-    // console.log('Menu')
-    // console.log(dinnerArray)
-    // console.log(props.menuItem[0].title)
-
-    // console.log(props.menuItem.filter((items) => {
-    //     if(items.category.title = 'Dinner'){
-    //         console.log(items)
-    //     }
-    // }))
-
-
     for(let i = 0; i < dinnerArray.length; i++){
         
-        //console.log(dinnerArray[i].title)
         htmlArray.push(
         <>
             <div className="card">
@@ -40,20 +28,7 @@ export default function(props){
         </>
         )
 
-
-        //                    <footer className="blockquote-footer">{dinnerArray[i].cuisine.title}{dinnerArray[i].category.label}<cite title="Source Title">{dinnerArray[i].price}</cite></footer>
-      
     }
-    //console.log(dinnerArray)
-
-    // props.menuItem.filter((items) => {
-    //     if(items.category.title = 'Dinner'){
-    //     htmlArray.push(
-            
-    //     )
-    //     }
-    // })
-
     return(
     <>
     <div>{htmlArray}</div>
