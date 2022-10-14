@@ -7,20 +7,20 @@ export default function NavButton(props) {
     //console.log(props)
     const array = []
 
-    console.log('NavButton',props)
-    const str = "Dinner"
+    //console.log('NavButton',props)
 
-    const click = () => {
-        props.setPage(str)
-        console.log('Click FUNC:',props.page)
-    }
+    // const click = (str) => {
+    //     console.log(str)
+    //     props.setPage(str)
+    //     //console.log('Click FUNC:',props.page)
+    // }
 
     for(let i = 0; i < titleArr.length; i++){
         array.push(
-            <button type="button" className="btn btn-light" key={i.toString()} onClick={click}>{titleArr[i]}</button>
+            <button type="button" className="btn btn-light" key={i.toString()} onClick={() => {props.setPage(titleArr[i])}}>{titleArr[i]}</button>
             
         );
-        console.log(titleArr[i])
+        //console.log(titleArr[i])
 
         
     }
@@ -36,8 +36,8 @@ export default function NavButton(props) {
     );
 }
 
-{/* <li className="nav-item">
+/* <li className="nav-item">
 <button type="button" className="btn btn-light">Home</button>
-</li> */}
+</li> */
 
 //<button type="button" className="btn btn-light">Home</button>

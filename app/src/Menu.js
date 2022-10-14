@@ -1,26 +1,35 @@
 
 export default function(props){
+    console.log(props)
+    console.log(props.menuItems[0].category)
+
+    const arr = props.menuItems.filter((i) => {
+        //console.log(i)
+         return i.category.title === props.page
+    })
+    console.log(arr)
+    
 
     const htmlArray = []
-    const dinnerArray = props.menuItem.filter((items) => {
-        if(items.category.title = 'Dinner'){
-            return items
-        }
-        })
+    // const dinnerArray = props.menuItems.category.filter((items) => {
+    //     if(items.category.title = props.page){
+    //         return items
+    //     }
+    //     })
 
 
-    for(let i = 0; i < dinnerArray.length; i++){
+    for(let i = 0; i < arr.length; i++){
         
         htmlArray.push(
         <>
             <div className="card">
                 <h2 className="card-header">
-                    {dinnerArray[i].title}
+                    {arr[i].title}
                 </h2>
                 <div className="card-body">
                     <blockquote className="blockquote mb-0">
-                    <p>{dinnerArray[i].description}</p>
-                    <footer className="blockquote-footer">{dinnerArray[i].cuisine ? dinnerArray[i].cuisine.label : null} {'-'} {dinnerArray[i].category ? dinnerArray[i].category.title : null}{':'}<cite title="Source Title"> {'$'}{dinnerArray[i].price}</cite></footer>
+                    <p>{arr[i].description}</p>
+                    <footer className="blockquote-footer">{arr[i].cuisine ? arr[i].cuisine.label : null} {'-'} {arr[i].category ? arr[i].category.title : null}{':'}<cite title="Source Title"> {'$'}{arr[i].price}</cite></footer>
                     </blockquote>
                 </div>
             </div>

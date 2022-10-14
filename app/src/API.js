@@ -4,6 +4,9 @@ import Hero from './Hero';
 import Nav from './Nav';
 import Footer from './Footer';
 import Home from './Home';
+import Test from './Test'
+import Spinner from './Spinner'
+import Menu from './Menu';
 
     const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
 
@@ -53,17 +56,21 @@ import Home from './Home';
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage}/>
-        <Home />
+        <Home/>
+        {page === 'Home' && <Test/>}
+        {page !== 'Home' && <Spinner/>}
         <Footer />
         </>
       );
-      console.log('AFTER: ',post)
+      //console.log('AFTER: ',post)
       //console.log(post[0])
       return (
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage}/>
         <Home />
+        {page === 'Home' && <Test/>}
+        {page !== 'Home' && <Menu menuItems={post} infoState={info} page={page} />}
         {/* <Data /> */}
         <Footer />
         </>
