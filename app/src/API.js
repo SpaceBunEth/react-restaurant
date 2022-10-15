@@ -4,9 +4,9 @@ import Hero from './Hero';
 import Nav from './Nav';
 import Footer from './Footer';
 import Home from './Home';
-import Test from './Test'
-import Spinner from './Spinner'
+import Loading from './Loading'
 import Menu from './Menu';
+import Hours from './More/Hours'
 
     const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
 
@@ -53,14 +53,15 @@ import Menu from './Menu';
         });
       }, []);
     
-    
+      
+
       if (!post) 
       return (
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
         {page === 'Home' && <Home/>}
-        {page !== 'Home' && <Spinner/>}
+        {page !== 'Home' && <Loading/>}
         <Footer />
         </>
       );
@@ -72,6 +73,8 @@ import Menu from './Menu';
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
         {page === 'Home' && <Home/>}
         {page !== 'Home' && <Menu menuItems={post} infoState={info} page={page} paginNum={paginNum} setpaginNum={setpaginNum}/>}
+        {page === 'Hours' && <Hours/>}
+
         {/* <Data /> */}
         <Footer />
         </>

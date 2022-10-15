@@ -2,15 +2,17 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import NavButton from './NavButton';
+import Hours from './More/Hours'
 
 export default function Nav(props) {
     // console.log(props.infoState)
     // console.log(props.page)
     // console.log(props.setPage)
     // console.log('props Nav', props)
-
+    console.log('current page NAV', props.page)
     return(
     <>
+    
         <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid ">
             <a className="navbar-brand" href="#">Menu</a>
@@ -27,8 +29,8 @@ export default function Nav(props) {
                     More
                 </a>
                 <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">About</a></li>
-                    <li><a className="dropdown-item" href="#">Hours</a></li>
+                    <li><a className="dropdown-item">About</a></li>
+                    <li><a className="dropdown-item" onClick={() => {props.setPage('Hours')}}>Hours</a></li>
                     <li><a className="dropdown-item" href="#">Reservations</a></li>
                     <li><a className="dropdown-item" href="#">Locations</a></li>
                     <li><a className="dropdown-item" href="#">Contact</a></li>
@@ -39,6 +41,7 @@ export default function Nav(props) {
             </div>
         </div>
         </nav>
+        
     </>
     );
 }
