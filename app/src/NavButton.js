@@ -17,7 +17,10 @@ export default function NavButton(props) {
 
     for(let i = 0; i < titleArr.length; i++){
         array.push(
-            <button type="button" className="btn btn-light" key={i.toString()} onClick={() => {props.setPage(titleArr[i])}}>{titleArr[i]}</button>
+            <button type="button" className="btn btn-light" key={i.toString()} onClick={() => {
+                props.setpaginNum(0)
+                props.setPage(titleArr[i])
+            }}>{titleArr[i]}</button>
             
         );
         //console.log(titleArr[i])

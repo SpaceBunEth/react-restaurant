@@ -10,8 +10,10 @@ import Menu from './Menu';
 
     const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
 
+    //['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast']
+    //['Home','Breakfast','Brunch','Lunch','Appetizer','Dinner','Side','Dessert']
     const objInfo = {
-        page: ['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast'],
+        page: ['Home','Breakfast','Brunch','Lunch','Appetizer','Dinner','Side','Dessert'],
         pageId: 'Home',
         hours:[
         'Monday 8:00am - 5:00pm',
@@ -39,6 +41,7 @@ import Menu from './Menu';
       const [post, setPost] = React.useState(null);
       const [info, setInfo] = React.useState(objInfo);
       const [page, setpage] = React.useState(pageId)
+      const [paginNum, setpaginNum] = React.useState(0)
       console.log('page index in API.js',page)
 
       //console.log({post})
@@ -55,9 +58,8 @@ import Menu from './Menu';
       return (
         <>
         <Hero />
-        <Nav infoState={info} page={pageId} setPage={setpage}/>
-        <Home/>
-        {page === 'Home' && <Test/>}
+        <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
+        {page === 'Home' && <Home/>}
         {page !== 'Home' && <Spinner/>}
         <Footer />
         </>
@@ -67,10 +69,9 @@ import Menu from './Menu';
       return (
         <>
         <Hero />
-        <Nav infoState={info} page={pageId} setPage={setpage}/>
-        <Home />
-        {page === 'Home' && <Test/>}
-        {page !== 'Home' && <Menu menuItems={post} infoState={info} page={page} />}
+        <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
+        {page === 'Home' && <Home/>}
+        {page !== 'Home' && <Menu menuItems={post} infoState={info} page={page} paginNum={paginNum} setpaginNum={setpaginNum}/>}
         {/* <Data /> */}
         <Footer />
         </>

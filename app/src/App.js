@@ -5,7 +5,9 @@ import API from './API'
 
 export default function(){
   return(
+    <div className='bg-secondary bg-opacity-25'>
     <API/>
+    </div>
   )
 }
 
