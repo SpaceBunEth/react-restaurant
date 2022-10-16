@@ -1,19 +1,20 @@
 import React from 'react';
 import axios from "axios";
 import Hero from './Hero';
-import Nav from './Nav';
+import Nav from './NavBar/Nav';
 import Footer from './Footer';
 import Home from './Home';
 import Loading from './Loading'
 import Menu from './Menu';
-import Hours from './More/Hours'
+import Other from './NavBar/More/Other'
 
     const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
 
     //['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast']
     //['Home','Breakfast','Brunch','Lunch','Appetizer','Dinner','Side','Dessert']
     const objInfo = {
-        page: ['Home','Breakfast','Brunch','Lunch','Appetizer','Dinner','Side','Dessert'],
+        page: ['Home','Breakfast','Lunch','Dinner'],
+        more: ['Brunch','Appetizer','Side','Dessert','break','Reservations','Hours','Location'],
         pageId: 'Home',
         hours:[
         'Monday 8:00am - 5:00pm',
@@ -26,6 +27,7 @@ import Hours from './More/Hours'
       ],
         
         phone: '(859)-555-5555',
+        email: 'spacebuncafe@email.com',
     
         address:{
           street: '405 East Main Str',
@@ -54,6 +56,33 @@ import Hours from './More/Hours'
       }, []);
     
       
+      function menuMap() {
+        for(let i = 0; i < objInfo.page.length; i++){
+          if(objInfo.page[i] !== 'Home' && objInfo.page[i] === page){
+            return objInfo.page[i]
+          }
+        }
+        for(let i = 0; i < 4; i++){
+          if(objInfo.more[i] === page){
+            return objInfo.more[i]
+          }
+        }
+      }
+
+      function otherMenuMap(){
+        for(let i = 4; i < objInfo.more.length;i++){
+          if(objInfo.more[i] === page){
+            return objInfo.more[i]
+          }
+          if('About' === page){
+            return 'About'
+          }
+          if('Contact' === page){
+            return 'Contact'
+          }
+        }
+      }
+
 
       if (!post) 
       return (
@@ -61,22 +90,23 @@ import Hours from './More/Hours'
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
         {page === 'Home' && <Home/>}
-        {page !== 'Home' && <Loading/>}
-        <Footer />
+        {page === menuMap() && <Loading/>}
+        {page === otherMenuMap() && <Other infoState={info} page={page}/> }
+        <Footer infoState={info} page={page} setPage={setpage}/>
         </>
       );
       //console.log('AFTER: ',post)
       //console.log(post[0])
+
+
       return (
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
         {page === 'Home' && <Home/>}
-        {page !== 'Home' && <Menu menuItems={post} infoState={info} page={page} paginNum={paginNum} setpaginNum={setpaginNum}/>}
-        {page === 'Hours' && <Hours/>}
-
-        {/* <Data /> */}
-        <Footer />
+        {page === menuMap() && <Menu menuItems={post} infoState={info} page={page} paginNum={paginNum} setpaginNum={setpaginNum}/>}
+        {page === otherMenuMap() && <Other infoState={info} page={page}/> }
+        <Footer infoState={info} page={page} setPage={setpage}/>
         </>
       );
     }

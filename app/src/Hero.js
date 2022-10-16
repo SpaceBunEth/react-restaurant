@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 export default function Hero() {
 return(
 <>
-<div className="px-4 py-3 my-3 text-center">
+<div id="topPage" className="px-4 py-3 my-3 text-center">
     {/* <img class="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> */}
     <h1 className="display-5 fw-bold">SpaceBun Cafe</h1>
     <div className="col-lg-6 mx-auto">
