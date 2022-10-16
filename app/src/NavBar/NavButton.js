@@ -34,7 +34,7 @@ export default function NavButton(props) {
 
     return(                
         <>
-        <li className='nav-item'>{array}</li>
+        <li className='nav-item p-3'>{array}</li>
         </>
     );
 }

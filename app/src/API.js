@@ -89,7 +89,7 @@ import Other from './NavBar/More/Other'
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
-        {page === 'Home' && <Home/>}
+        {page === 'Home' && <Home setPage={setpage}/>}
         {page === menuMap() && <Loading/>}
         {page === otherMenuMap() && <Other infoState={info} page={page}/> }
         <Footer infoState={info} page={page} setPage={setpage}/>
@@ -103,7 +103,7 @@ import Other from './NavBar/More/Other'
         <>
         <Hero />
         <Nav infoState={info} page={pageId} setPage={setpage} setpaginNum={setpaginNum}/>
-        {page === 'Home' && <Home/>}
+        {page === 'Home' && <Home setPage={setpage}/>}
         {page === menuMap() && <Menu menuItems={post} infoState={info} page={page} paginNum={paginNum} setpaginNum={setpaginNum}/>}
         {page === otherMenuMap() && <Other infoState={info} page={page}/> }
         <Footer infoState={info} page={page} setPage={setpage}/>
