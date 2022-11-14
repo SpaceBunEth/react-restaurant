@@ -8,7 +8,7 @@ import Loading from './Loading'
 import Menu from './Menu';
 import Other from './NavBar/More/Other'
 
-    const baseURL = "https://astute-baton-362318.ue.r.appspot.com/api/json/";
+    const baseURL = 'https://8000-spacebuneth-backendbist-qxu2xff6c53.ws-us74.gitpod.io/menu/';
 
     //['Home','Side','Brunch','Appetizer','Dessert','Dinner','Lunch','Breakfast']
     //['Home','Breakfast','Brunch','Lunch','Appetizer','Dinner','Side','Dessert']

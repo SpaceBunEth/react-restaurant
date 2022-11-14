@@ -13,8 +13,8 @@ export default function NavMore(props) {
     }
 
     return(
-        <lu>
+        <ul>
             {returnArray}
-        </lu>
+        </ul>
     );
 }
